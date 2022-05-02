@@ -1,4 +1,4 @@
-package mv.orm.r2dbc.model;
+package io.github.matej26.r2dbc.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

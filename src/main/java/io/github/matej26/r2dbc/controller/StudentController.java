@@ -1,7 +1,7 @@
-package mv.orm.r2dbc.controller;
+package io.github.matej26.r2dbc.controller;
 
-import mv.orm.r2dbc.model.Student;
-import mv.orm.r2dbc.service.StudentService;
+import io.github.matej26.r2dbc.service.StudentService;
+import io.github.matej26.r2dbc.model.Student;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;

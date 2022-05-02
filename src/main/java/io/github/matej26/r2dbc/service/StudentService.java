@@ -1,17 +1,16 @@
-package mv.orm.r2dbc.service;
+package io.github.matej26.r2dbc.service;
 
-import mv.orm.r2dbc.model.Student;
-import mv.orm.r2dbc.repository.StudentRepositoryImpl;
-import mv.orm.r2dbc.util.QueryBuilder;
+import io.github.matej26.r2dbc.model.Student;
+import io.github.matej26.r2dbc.repository.StudentRepository;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @Service
 public class StudentService {
-    private final StudentRepositoryImpl studentRepository;
+    private final StudentRepository studentRepository;
 
-    public StudentService(StudentRepositoryImpl studentRepository) {
+    public StudentService(StudentRepository studentRepository) {
         this.studentRepository = studentRepository;
     }
 
