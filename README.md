@@ -8,7 +8,7 @@ The main idea is to give developer more control over the query like [JOOQ](https
 ```QueryStep``` interface supports basic SQL predicates: <br>
 ```=, !=, >, <, >=, <=, like, not like, in, not in, is true, is false, is null, is not null```. <br> <br>
 ```Query``` interface provides intermediate operators like ```where, or, and```. <br> <br>
-And finally ```QueryExecutor``` interface allows to choose SQL operation: ```find, findAll, save, update, delete```. <br> <br>
+And finally ```QueryExecutor``` interface allows to choose SQL operation: ```find, findAll, save, update, delete```. 
 
 ## Usage
 All you need is to inject ```QueryExecutor``` to your data access layer: <br>
