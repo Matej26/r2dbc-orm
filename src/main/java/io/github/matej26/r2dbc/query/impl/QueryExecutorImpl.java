@@ -24,7 +24,7 @@ public class QueryExecutorImpl implements QueryExecutor {
 
     @Override
     public <T> Flux<T> findAll(Class<T> clazz) {
-        return findAll(Query.where().isNotNull("id"), clazz);
+        return template.select(clazz).all();
     }
 
     @Override
