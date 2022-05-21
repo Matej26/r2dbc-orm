@@ -10,6 +10,10 @@ public interface QueryExecutor {
 
     <T> Flux<T> findAll(Query query, Class<T> clazz);
 
+    <T> Flux<T> findAll(SortingQuery sortingQuery, Class<T> clazz);
+
+    <T> Flux<T> findAll(Query query, SortingQuery sortingQuery, Class<T> clazz);
+
     <T> Mono<T> save(T entity);
 
     <T> Mono<T> update(T entity);

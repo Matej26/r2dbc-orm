@@ -3,6 +3,8 @@ package io.github.matej26.r2dbc;
 import io.github.matej26.r2dbc.model.Student;
 import io.github.matej26.r2dbc.query.Query;
 import io.github.matej26.r2dbc.query.QueryExecutor;
+import io.github.matej26.r2dbc.query.SortingQuery;
+import io.github.matej26.r2dbc.query.util.SortingDirection;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -236,6 +238,43 @@ class R2dbcApplicationTests {
 				)
 				.as(StepVerifier::create)
 				.expectNextCount(3)
+				.verifyComplete();
+	}
+
+	@Test
+	void shouldReturnAllStudentsByLimit() {
+		executor.findAll(
+						SortingQuery.sortAndPage("id", 3),
+						Student.class
+				)
+				.as(StepVerifier::create)
+				.expectNextCount(3)
+				.verifyComplete();
+	}
+
+	@Test
+	void shouldReturnAllStudentsByOffset() {
+		executor.findAll(
+						SortingQuery.sortAndPage("id", 3L),
+						Student.class
+				)
+				.as(StepVerifier::create)
+				.expectNextCount(3)
+				.verifyComplete();
+	}
+
+	@Test
+	void shouldReturnAllStudentsBySort() {
+		executor.findAll(
+						SortingQuery.sort("id", SortingDirection.DESC),
+						Student.class
+				)
+				.as(StepVerifier::create)
+				.consumeNextWith(student -> {
+					assertEquals("liza", student.getName());
+					assertEquals("spb", student.getAddress());
+				})
+				.expectNextCount(5)
 				.verifyComplete();
 	}
 }
